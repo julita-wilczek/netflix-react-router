@@ -1,4 +1,4 @@
-import { Navbar, Nav, Image } from "react-bootstrap";
+import { Navbar, Nav, Image, Form, FormControl } from "react-bootstrap";
 import { FiSearch } from "react-icons/fi";
 import { BsBell } from "react-icons/bs";
 import NetflixLogo from "../data/netflix_logo.png";
@@ -9,6 +9,12 @@ import { Link, useLocation} from "react-router-dom";
 const MyNavbar = (prop) => {
   const { textColor, textMargin } = prop;
   const location = useLocation();
+
+  const setSearchQuery = (e) => {
+    if (e.keyCode === 13) {
+    let str = e.target.value;
+    prop.setSearch(str)
+  }};
   return (
     <Navbar bg="dark" expand="lg" id="nav">
       <Image className="netflixLogo" src={NetflixLogo} rounded />
@@ -52,6 +58,16 @@ const MyNavbar = (prop) => {
           <Nav.Link href="#link4" style={{ color: textColor }}>
             My List
           </Nav.Link>
+        </Nav>
+        <Nav>
+        <FormControl
+          type="search"
+          width="50px"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+          onKeyUp={(event)=> {setSearchQuery(event)}}
+        />
         </Nav>
         <FiSearch style={{ color: textColor, margin: textMargin }} />
         <div style={{ color: textColor, margin: textMargin }}>KIDS</div>

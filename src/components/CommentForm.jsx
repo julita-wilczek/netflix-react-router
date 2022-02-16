@@ -33,7 +33,7 @@ class CommentsForm extends Component {
           headers: {
             'Content-type': 'application/json',
             Authorization:
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhYTQ4MDgyZWExZDAwMTViYjA1NWQiLCJpYXQiOjE2NDM4MTYwNjQsImV4cCI6MTY0NTAyNTY2NH0.NufHuuX8g0HI0LZVamJvMuYm2a82QnHqM1itLwL2MuU",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhYTQ4MDgyZWExZDAwMTViYjA1NWQiLCJpYXQiOjE2NDUwMjYyNzcsImV4cCI6MTY0NjIzNTg3N30.BFQAwEHFhlnBLrJfJy3oV1xft9UXqx8waliq8pH771E",
           },
         }
       )

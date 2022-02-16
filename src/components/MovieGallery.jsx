@@ -6,72 +6,60 @@
 import { Row, Spinner } from "react-bootstrap";
 import MovieCard from "./MovieCard";
 
-import { Component} from "react";
-
-class MovieGallery extends Component {
-  state = {
-    movies: [],
-    isLoading: true,
-  };
+import {useEffect, useState} from "react";
+import { useLocation} from "react-router-dom";
+import NotFound from "./NotFound";
 
 
-  galleryOnChange = async () => {
+const MovieGallery = (props) => {
+  const [movies, setMovies] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
+  const location = useLocation()
+  const query = props.query === "" ? "Star Wars" : props.query
+  const url = location.pathname === "/tv-shows" ? "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query + "&type=series" : "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query
+  
+  
+
+  const fetchData = async () => {
 
     try {
-      console.log(this.state.searchQuery);
-      this.setState({ searchQuery: this.props.query });
       
 
-      let response = await fetch(
-        "http://www.omdbapi.com/?apikey=a0d093ea&s=" + this.props.query
+      let response = await fetch(url
       );
       if (response.ok) {
         let data = await response.json();
-        this.setState({ movies: data.Search });
+        setMovies(data.Search);
+        setIsLoading(false)
         
       } else {
-        alert("something wrong with the data");
+        setNotFound(true)
+        setIsLoading(false)
       }
     } catch (error) {
-      console.log(error);
+      setIsLoading(false)
+      setNotFound(true)
     }
 
   }
 
+  useEffect(() => {
+    fetchData()
+  }, [props.query])
 
-  componentDidMount = async () => {
-    try {
 
-      let response = await fetch(
-        "http://www.omdbapi.com/?apikey=a0d093ea&s=" + this.props.query
-      );
-      if (response.ok) {
-        let data = await response.json();
-        console.log(data)
-        this.setState({ movies: data.Search });
-        this.setState({isLoading: false})
-      } else {
-        alert("something wrong with the data");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  render() {
     return (
       <>
-      
-      <h4 className="mb-3 mt-5 ml-n2">{this.props.query} </h4>
-      {this.state.isLoading && (<Row className="d-flex justify-content-center"><Spinner animation="border" variant="success" /></Row>)}
-      <Row className="g-1">
-        {this.state.movies.filter((movie, index) => index < 6).map((movie) => (
+      {isLoading && (<><h4 className="mb-3 mt-5 ml-n2">Loading... </h4><Row className="d-flex justify-content-center"><Spinner animation="border" variant="success" /></Row></>)}
+      {typeof movies !== "undefined" && (<><h4 className="mb-3 mt-5 ml-n2">{query} </h4> <Row className="g-1">
+        {movies.filter((movie, index) => index < 6).map((movie) => (
           <MovieCard key={movie.imdbID} id={movie.imdbID} img={movie.Poster} title={movie.Title} />
         ))}
-      </Row>
+      </Row></>)}
+      {notFound && <NotFound />}
       </>
     );
   }
-}
 
 export default MovieGallery;

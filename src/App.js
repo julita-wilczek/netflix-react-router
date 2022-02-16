@@ -7,6 +7,7 @@ import MovieDetails from "./components/MovieDetails";
 
 
 function App( prop) {
+
   return (
     <BrowserRouter>
   <MyNavbar textColor='white' textMargin='10px'/>

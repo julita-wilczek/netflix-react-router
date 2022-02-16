@@ -3,10 +3,11 @@
 // This info should be fetched every time the MovieDetails component loads.
 
 import { useEffect, useState } from 'react'
-import { Container, Row, Col, ListGroup, Spinner, Image, Alert } from 'react-bootstrap'
+import { Container, Row, Col, ListGroup, Spinner, Image, Alert, Button} from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import NotFound from './NotFound'
 import CommentsList from './CommentsList'
+import CommentsForm from './CommentForm'
 
 const MovieDetails = () => {
 
@@ -16,6 +17,8 @@ const MovieDetails = () => {
     const [comments, setComments] = useState([])
     const [noCommentsYet, setNoCommentsYet] = useState(false)
     const [error, setError] = useState(false)
+    const [reviewModeOn, setReviewModeOn] = useState(false)
+    const [commentReadingOn, setCommentReadingOn] = useState(true)
    
     useEffect (() => {
         fetchData(params.movieId)
@@ -69,6 +72,7 @@ const MovieDetails = () => {
         }
       }
 
+    
     return (
         
         <Container>
@@ -85,15 +89,13 @@ const MovieDetails = () => {
   </ListGroup>
             </Col>
             <Col>
-
-            {loading && (
-          <Spinner animation='border' variant='primary' />
-        )}
         {error && (
           <Alert variant='danger'>Something went wrong 😨</Alert>
         )}
 {noCommentsYet && (<p>No comments on this book yet, you can be first!</p>)}
-            <CommentsList id={params.movieId} array ={comments}/>
+{commentReadingOn && (<CommentsList id={params.movieId} array ={comments}/>)}
+{reviewModeOn && (<CommentsForm id = {params.movieId}/>)}
+
             </Col>
             </Row>
 
@@ -105,24 +107,3 @@ const MovieDetails = () => {
 
 
 export default MovieDetails
-
-
-/*
-
-
-  useEffect(() => {
-    // here I should grab the correct pasta to load the details of
-    // now let's cycle the dishes array to find the pasta with the corresponding pastaId
-    let pastaToLoad = dishes.find(
-      (pasta) => pasta.id.toString() === params.pastaId
-    )
-    // pastaToLoad, if found, will be the correct pasta to show the details of!
-    console.log('PASTATOLOAD IS', pastaToLoad)
-    setRightPastaToShow(pastaToLoad)
-  }, [])
-
-  
-}
-
-export default PastaDetails
-*/

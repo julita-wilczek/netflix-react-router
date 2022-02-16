@@ -1,7 +1,3 @@
-// ASSIGNED TO GIORGIO
-// This takes prop from it's parent (Netflix Body)
-// and uses it to fetch array of objects
-// and then passes props of the object to it's child (Movie Card)
 
 import { Row, Spinner } from "react-bootstrap";
 import MovieCard from "./MovieCard";
@@ -15,9 +11,9 @@ const MovieGallery = (props) => {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
-  const location = useLocation()
   const query = props.query === "" ? "Star Wars" : props.query
-  const url = location.pathname === "/tv-shows" ? "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query + "&type=series" : "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query
+  const location = useLocation()
+  const url = location.pathname !== "/" ? "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query + "&type=" + location.pathname.substring(1) : "http://www.omdbapi.com/?apikey=a0d093ea&s=" + query
   
   
 

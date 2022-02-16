@@ -1,6 +1,4 @@
-// ASSIGNED TO MARTIN
-// This should contain search bar 
-// It needs to pass props to MovieGallery
+
 import { Container, Form, Button } from "react-bootstrap";
 import MovieGallery from "./MovieGallery"
 import { Component } from 'react';

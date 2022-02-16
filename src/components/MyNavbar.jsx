@@ -26,20 +26,26 @@ const MyNavbar = (prop) => {
             </div>
           </Link>
 
-          <Link to="/tv-shows">
+          <Link to="/series">
             <div
               style={{ color: textColor }}
               className={`nav-link${
-                location.pathname === "/tv-shows" ? " active" : ""
+                location.pathname === "/series" ? " active" : ""
               }`}
             >
               Tv shows
             </div>
           </Link>
-
-          <Nav.Link href="#link2" style={{ color: textColor }}>
-            Movies
-          </Nav.Link>
+          <Link to="/movie">
+            <div
+              style={{ color: textColor }}
+              className={`nav-link${
+                location.pathname === "/movie" ? " active" : ""
+              }`}
+            >
+              Movies
+            </div>
+          </Link>
           <Nav.Link href="#link3" style={{ color: textColor }}>
             Recently Added
           </Nav.Link>

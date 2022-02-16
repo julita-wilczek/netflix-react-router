@@ -13,7 +13,8 @@ function App( prop) {
   <MyNavbar textColor='white' textMargin='10px'/>
   <Routes>
   <Route path='/' element={<NetflixBody />} />
-  <Route path='/tv-shows' element={<NetflixBody />} />
+  <Route path='/series' element={<NetflixBody />} />
+  <Route path='/movie' element={<NetflixBody />} />
   <Route path='/details/:movieId' element={<MovieDetails />} />
   </Routes>
   <MyFooter />

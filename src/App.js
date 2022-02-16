@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import MyFooter from "./components/MyFooter";
+import MyNavbar from "./components/MyNavbar";
+import NetflixBody from "./components/NetflixBody";
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-function App() {
+
+function App( prop) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+  <MyNavbar textColor='white' textMargin='10px'/>
+  <Routes>
+  <Route path='/' element={<NetflixBody />} />
+  <Route path='/tv-shows' element={<NetflixBody />} />
+  </Routes>
+  <MyFooter />
+  </BrowserRouter>
   );
 }
 

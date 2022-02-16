@@ -1,0 +1,25 @@
+.netflixLogo {
+  width: 130px;
+}
+
+.avatarLogo {
+  width: 30px;
+}
+
+#nav{
+
+  background-color: rgb(20, 20, 20)!important;
+  height: 68px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+
+a {
+  text-decoration: none!important;
+}
+
+.active {
+  font-weight: 700;
+}
+

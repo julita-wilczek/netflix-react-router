@@ -1,0 +1,55 @@
+
+.rowS {
+    margin-left: 56px;
+    margin-right: 56px;
+    max-width: 980px;
+  }
+
+.footer {
+
+    display: block;
+    font-size: 10px;
+    line-height: 12px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    text-size-adjust: 100%;
+    
+  }
+
+  
+  .my-6{
+
+    margin-top: 40px!important;
+    margin-bottom: 0px!important;
+    }
+
+    .social-links{
+      display: block;
+
+      }
+
+      .social-link{
+        color: white;
+        }
+
+.nav .flex-column li{
+            color: #808080;
+          
+          }
+
+          #service{
+            border-color: #808080;
+            color:#808080;
+            background-color: rgb(20, 20, 20);
+            max-width: 130px;
+            max-height: 32px;
+            font-size: 10px;
+          }
+
+          #par{
+            color: #808080;
+            font-size: 10px;
+          
+          }
+
+  

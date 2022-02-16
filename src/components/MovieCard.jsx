@@ -1,41 +1,41 @@
 // ASSIGNED TO GIORGIO
 // This needs to take props like img src from Movie Gallery
 
-import { Col, Image } from "react-bootstrap"
+import { Col, Image, Button } from "react-bootstrap"
 import "./MovieCard.css" 
 import CommentArea from "./CommentArea"
-import { Component } from "react"
+import { useState } from "react"
+import {useNavigate } from 'react-router-dom'
 
 
-class  MovieCard extends Component{
-    state = {
-        selected: false,
-      }
-      
-      toggleState = () => {
-        if (this.state.selected === false) {
-          this.setState({
-            selected: true, 
-          })
+const  MovieCard = (props) => {
+  const [selected, setSelected] = useState(false)
+  const navigate = useNavigate()
+ 
+  const toggleState = () => {
+        if (selected === false) {
+          setSelected(true, 
+          )
       
       
         } else {
-          this.setState({
-            selected: false, 
-          })
+          setSelected(true, 
+          )
       
         }
       }
-render(){
+
     return (
-        <>
         <Col className="px-1 mb-1" xs={8} sm={3} md={2}>
-        {this.state.selected && (<CommentArea show="true" title = {this.props.title} id = {this.props.id}/>)}
-        <Image onClick={(event) => this.toggleState(event)} fluid className="w-100 h-100 main-image" key={this.props.id} alt="movieposter" src={this.props.img} />
+        {selected && (<CommentArea show="true" title = {props.title} id = {props.id}/>)}
+        <Image onClick={() => toggleState()} fluid className="w-100 h-100 main-image" key={props.id} alt="movieposter" src={props.img} />
+        <Button size="sm" variant="light" onClick={() => {
+            setTimeout(() => {
+              navigate('/details/' + props.id)
+            }, 500)}}>Movie Details</Button>
         </Col>
-        </>
-    )
-    }
+        
+      ) 
 }
 
 export default MovieCard

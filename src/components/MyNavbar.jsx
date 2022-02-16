@@ -4,7 +4,7 @@ import { BsBell } from "react-icons/bs";
 import NetflixLogo from "../data/netflix_logo.png";
 import AvatarLogo from "../data/avatar.png";
 import "./MyNavbar.css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 
 const MyNavbar = (prop) => {
   const { textColor, textMargin } = prop;

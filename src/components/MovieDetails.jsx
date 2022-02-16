@@ -72,7 +72,11 @@ const MovieDetails = () => {
         }
       }
 
-    
+    const postReview = () => {
+      setCommentReadingOn(false)
+      setNoCommentsYet(false)
+      setReviewModeOn(true)
+    }
     return (
         
         <Container>
@@ -95,6 +99,8 @@ const MovieDetails = () => {
 {noCommentsYet && (<p>No comments on this movie yet, you can be first!</p>)}
 {commentReadingOn && (<CommentsList id={params.movieId} array ={comments}/>)}
 {reviewModeOn && (<CommentsForm id = {params.movieId}/>)}
+{commentReadingOn && (
+  <Button size="sm" variant="secondary" onClick={() => {postReview()}}>Add review</Button>)}
 
             </Col>
             </Row>

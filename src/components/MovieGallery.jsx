@@ -48,6 +48,10 @@ const MovieGallery = (props) => {
     fetchData()
   }, [props.query])
 
+  useEffect(() => {
+    fetchData()
+  }, [location])
+
 
     return (
       <>

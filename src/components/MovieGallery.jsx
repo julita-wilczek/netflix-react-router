@@ -48,11 +48,13 @@ const MovieGallery = (props) => {
     fetchData()
   }, [location])
 
+  const headerInnerTxt = isLoading ? "Loading..." : query
 
     return (
       <>
-      {isLoading && (<><h4 className="mb-3 mt-5 ml-n2">Loading... </h4><Row className="d-flex justify-content-center"><Spinner animation="border" variant="success" /></Row></>)}
-      {typeof movies !== "undefined" && (<><h4 className="mb-3 mt-5 ml-n2">{query} </h4> <Row className="g-1">
+      <h4 className="mb-3 mt-5 ml-n2"> {headerInnerTxt} </h4> 
+      {isLoading && (<><Row className="d-flex justify-content-center"><Spinner animation="border" variant="success" /></Row></>)}
+      {typeof movies !== "undefined" && (<><Row className="g-1">
         {movies.filter((movie, index) => index < 6).map((movie) => (
           <MovieCard key={movie.imdbID} id={movie.imdbID} img={movie.Poster} title={movie.Title} />
         ))}

@@ -12,7 +12,7 @@ const  MovieCard = (props) => {
   const [selected, setSelected] = useState(false)
   const navigate = useNavigate()
  
-  const toggleState = () => {
+ /* const toggleState = () => {
         if (selected === false) {
           setSelected(true, 
           )
@@ -23,16 +23,15 @@ const  MovieCard = (props) => {
           )
       
         }
-      }
+      } */
 
     return (
         <Col className="px-1 mb-1" xs={8} sm={3} md={2}>
         {selected && (<CommentArea show="true" title = {props.title} id = {props.id}/>)}
-        <Image onClick={() => toggleState()} fluid className="w-100 h-100 main-image" key={props.id} alt="movieposter" src={props.img} />
-        <Button size="sm" variant="light" onClick={() => {
+        <Image onClick={() => {
             setTimeout(() => {
               navigate('/details/' + props.id)
-            }, 500)}}>Movie Details</Button>
+            }, 500)}} fluid className="w-100 h-100 main-image" key={props.id} alt="movieposter" src={props.img} />
         </Col>
         
       ) 

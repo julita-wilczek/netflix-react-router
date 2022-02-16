@@ -47,6 +47,7 @@ class MovieGallery extends Component {
       );
       if (response.ok) {
         let data = await response.json();
+        console.log(data)
         this.setState({ movies: data.Search });
         this.setState({isLoading: false})
       } else {

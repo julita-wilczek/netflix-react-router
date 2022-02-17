@@ -46,6 +46,7 @@ class CommentsForm extends Component {
             elementId: "",
           },
         })
+        setTimeout(() => {this.props.refresh()}, 2000) 
       } else {
         alert('something went wrong! please try again')
         if (response.status === 400) {

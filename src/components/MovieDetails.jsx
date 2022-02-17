@@ -25,6 +25,11 @@ const MovieDetails = () => {
         fetchComments()
     }, [])
 
+    useEffect (() => {
+      fetchData(params.movieId)
+      fetchComments()
+  }, [commentReadingOn])
+
     const fetchData = async (movieId) => {
         try {
 
@@ -77,6 +82,11 @@ const MovieDetails = () => {
       setNoCommentsYet(false)
       setReviewModeOn(true)
     }
+
+    const refresh = () => {
+      setCommentReadingOn(true)
+      setReviewModeOn(false)
+    }
     return (
         
         <Container>
@@ -98,7 +108,7 @@ const MovieDetails = () => {
         )}
 {noCommentsYet && (<p>No comments on this movie yet, you can be first!</p>)}
 {commentReadingOn && (<CommentsList id={params.movieId} array ={comments}/>)}
-{reviewModeOn && (<CommentsForm id = {params.movieId}/>)}
+{reviewModeOn && (<CommentsForm id = {params.movieId} refresh = {refresh}/>)}
 {commentReadingOn && (
   <Button size="sm" variant="secondary" onClick={() => {postReview()}}>Add review</Button>)}
 

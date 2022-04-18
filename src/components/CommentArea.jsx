@@ -23,7 +23,7 @@ class CommentArea extends Component {
             method: "GET",
             headers: {
             Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhYTQ4MDgyZWExZDAwMTViYjA1NWQiLCJpYXQiOjE2NDUwMjYyNzcsImV4cCI6MTY0NjIzNTg3N30.BFQAwEHFhlnBLrJfJy3oV1xft9UXqx8waliq8pH771E",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhYTQ4MDgyZWExZDAwMTViYjA1NWQiLCJpYXQiOjE2NTAyNzg2NjYsImV4cCI6MTY1MTQ4ODI2Nn0.6JbnsMx2f_LapEl9vU2JHole-4eJA8ktC8CQSNkfKeY",
             },
             }
           )

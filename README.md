@@ -1,9 +1,9 @@
 # Strive Netflix Copy with React
 Repository for Strive School Full Stack Course work, Module 4 Day 8 (February 16, 2022).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-This is a simple landing page for streaming platform that allows the user to comment on the movies.
-It is a refactored version from module 2, 3 and 4.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+This is a simple landing page for streaming platform that allows the user to comment on the movies.\
+It is a refactored version from module 2, 3 and 4.\
 Created with React. Uses functional and class components, REACT hooks, REACT router, state-lifting, fetches data from The Open Movie Database.
 
 **Features:**

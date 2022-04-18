@@ -9,8 +9,10 @@ Created with React. Uses functional and class components, REACT hooks, REACT rou
 **Features:**
 
 - books via API
-- comments via API (ability to add and delete) displayed in a modal upon clicking on a movie poster
+- comments via API (ability to add and delete)
+- details page with movie info and comments 
 - search by title (non case sensitive) - results shown in the top row (press ENTER for search)
+- ability to choose by type (movie, tv series)
 - boostrap layout
 - error handling
 - form validation
